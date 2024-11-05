@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:46:20 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/04 20:59:02 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 06:57:21 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,44 +34,41 @@ void    clean(t_philo *philo)
     free(philo);
 }
 
-void    casual_day(void *arg)
+void    *casual_day(void *arg)
 {
-    
-}
+	t_philo	*philo;
 
-void    observer(void *arg)
-{
-    t_philo *philo;
-    t_philo *tmp;
-    struct timeval now;
-
-    philo = (t_philo *)arg;
-    while (1)
-    {
-        tmp = philo;
-        while (tmp)
-        {
-            gettimeofday(&now, NULL);
-            if (tmp->eating && (now.tv_sec * 1000 + now.tv_usec / 1000) - tmp->last_eat > tmp->mutex->time_to_die)
-            {
-                pthread_mutex_lock(tmp->mutex->print);
-                printf("%lld %d died\n", (now.tv_sec * 1000 + now.tv_usec / 1000) - tmp->mutex->start, tmp->id);
-                pthread_mutex_unlock(tmp->mutex->print);
-                tmp->mutex->dead = 1;
-                return ;
-            }
-            tmp = tmp->next;
-        }
-    }
+	philo = (t_philo *)arg;
+	pthread_mutex_lock(philo->mutex->monitor);
+	philo->start = ft_getcurrenttime();
+	philo->last_eat = philo->start;
+	pthread_mutex_unlock(philo->mutex->monitor);
+	if (philo->id % 2 == 0)
+		ft_usleep(philo->time_to_eat - 10);
+	if (philo->nb_philo == 1)
+	{
+		printf_mutex(" died", philo);
+		return (NULL);
+	}
+	while (!is_dead(philo))
+	{
+		philo_eating(philo);
+		if (full_stomack(philo))
+			break ;
+		philo_sleeping(philo, philo->time_to_sleep);
+		philo_thinking(philo);
+	}
+	pthread_mutex_lock(philo->mutex->count_mtx);
+	philo->mutex->count++;
+	pthread_mutex_unlock(philo->mutex->count_mtx);
+	return (NULL);
 }
 
 void    spawn_philo(t_philo *philo)
 {
     t_philo *tmp;
     pthread_t observer;
-    int i;
 
-    i = 0;
     tmp = philo;
     while (tmp)
     {
@@ -79,7 +76,7 @@ void    spawn_philo(t_philo *philo)
         tmp = tmp->next;
     }
     tmp = philo;
-    pthread_create(&observer, NULL, observer, (void *)tmp);
+    pthread_create(&observer, NULL, observer_rout, (void *)tmp);
     pthread_detach(observer);
     while (tmp)
     {
@@ -88,5 +85,5 @@ void    spawn_philo(t_philo *philo)
     }
     tmp = philo;
     if (tmp->mutex->count == tmp->nb_philo)
-    clean(philo);
+        clean(philo);
 }

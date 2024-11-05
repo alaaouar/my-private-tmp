@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:29:11 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/04 20:34:50 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 06:55:13 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ t_mutex	*shopsticks_init(int size, pthread_mutex_t *shop)
     pthread_mutex_init(shopsticks->print, NULL);
     shopsticks->monitor = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
     if (!shopsticks->monitor)
+    {
         return (NULL);
+    }
 	pthread_mutex_init(shopsticks->monitor, NULL);
     shopsticks->count_mtx = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
     if (!shopsticks->count_mtx)

@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:13:01 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/04 18:27:22 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 06:56:42 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,27 @@ typedef struct s_philo
 }					t_philo;
 
 
-int	parse(char **av);
+int			parse(char **av);
+int			ft_atoi(const char *str);
+void		*observer(void *arg);
+long long	ft_getcurrenttime(void);
+int			ft_usleep(size_t milliseconds);
+long long	ft_getcurrenttime(void);\
+int			is_dead(t_philo *philo);
+void		printf_mutex(char *msg, t_philo *philo);
+void		obs_death_handle(t_philo *tmp);
+int			observer_tracker(t_philo **philo);
+void    	*observer_rout(void *arg);
+void    	clean(t_philo *philo);
+void    	*casual_day(void *arg);
+void    	spawn_philo(t_philo *philo);
+void    	philo_eating(t_philo *philo);
+int			full_stomack(t_philo *philo);
+int			unlock_forks(t_philo *philo);
+void		philo_sleeping(t_philo *philo, long long time);
+void		philo_thinking(t_philo *philo);
+void    	everything_init(char **av, int ac, t_philo **philo);
+int			lock_forks(t_philo *philo);
+
 
 #endif
