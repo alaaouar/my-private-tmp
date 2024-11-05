@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:07:23 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 07:02:42 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:56:10 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	printf_mutex(char *msg, t_philo *philo)
 	}
 	pthread_mutex_unlock(philo->mutex->monitor);
 	pthread_mutex_lock(philo->mutex->print);
-	printf("=%lld= Philo %d%s \n", ft_getcurrenttime() - philo->start,philo->id, msg);
+	printf ("=%lld= Philo %d%s \n", ft_getcurrenttime()
+		-philo->start, philo->id, msg);
 	pthread_mutex_unlock(philo->mutex->print);
 }
 
@@ -50,18 +51,6 @@ int	is_dead(t_philo *philo)
 	if (philo->mutex->dead == 1)
 		return (pthread_mutex_unlock(philo->mutex->monitor), 1);
 	return (pthread_mutex_unlock(philo->mutex->monitor), 0);
-}
-
-void	philo_sleeping(t_philo *philo, long long time)
-{
-	printf_mutex(" is sleeping", philo);
-	ft_usleep(time);
-}
-
-void	philo_thinking(t_philo *philo)
-{
-	printf_mutex(" is thinking", philo);
-	ft_usleep(5);
 }
 
 int	lock_forks(t_philo *philo)

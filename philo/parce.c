@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:15:25 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/04 18:26:45 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:47:09 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ int	ft_isdigit(int car)
 	return (0);
 }
 
-int numbers_only(char **str)
+int	numbers_only(char **str)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 0;
-	while(str[i])
+	while (str[i])
 	{
 		j = 0;
-		while(str[i][j])
+		while (str[i][j])
 		{
-			if((str[i][j] == '-' || str[i][j] == '+') && j == 0)
+			if ((str[i][j] == '-' || str[i][j] == '+') && j == 0)
 			{
 				j++;
-				continue;
+				continue ;
 			}
 			if (!ft_isdigit(str[i][j]))
 				return (1);
@@ -87,5 +87,5 @@ int	parse(char **av)
 		return (1);
 	if (av[5] && (ft_atoi(av[5]) < 0 || ft_atoi(av[5]) > MAX_INT))
 		return (1);
-    return (0);
+	return (0);
 }

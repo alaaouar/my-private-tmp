@@ -6,11 +6,23 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:04:20 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 06:56:26 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:57:17 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_head.h"
+
+void	philo_sleeping(t_philo *philo, long long time)
+{
+	printf_mutex(" is sleeping", philo);
+	ft_usleep(time);
+}
+
+void	philo_thinking(t_philo *philo)
+{
+	printf_mutex(" is thinking", philo);
+	ft_usleep(5);
+}
 
 void	obs_death_handle(t_philo *tmp)
 {
@@ -34,7 +46,7 @@ int	observer_tracker(t_philo **philo)
 	return (0);
 }
 
-void    *observer_rout(void *arg)
+void	*observer_rout(void *arg)
 {
 	t_philo	*tmp;
 	t_philo	*philo;
