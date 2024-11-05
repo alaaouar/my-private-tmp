@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:07:23 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 06:57:44 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 07:02:42 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	printf_mutex(char *msg, t_philo *philo)
 	}
 	pthread_mutex_unlock(philo->mutex->monitor);
 	pthread_mutex_lock(philo->mutex->print);
-	printf("[%lld] Philo %d%s \n", ft_getcurrenttime() - philo->start,
-		philo->id, msg);
+	printf("=%lld= Philo %d%s \n", ft_getcurrenttime() - philo->start,philo->id, msg);
 	pthread_mutex_unlock(philo->mutex->print);
 }
 

@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:29:11 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 06:55:13 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 07:03:10 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_philo *born_philo(char **av, int ac, t_mutex *mutex, pthread_mutex_t *r, pthre
     philo->l_shopstick = l;
     philo->mutex = mutex;
     philo->next = NULL;
+    i++;
     return (philo);
 }
 
