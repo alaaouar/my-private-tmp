@@ -6,11 +6,11 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 06:18:16 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 18:52:30 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:03:22 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_head.h"
+#include "../INC/philo_head.h"
 
 int	unlock_forks(t_philo *philo)
 {

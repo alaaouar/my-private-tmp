@@ -6,11 +6,11 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:04:20 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 17:57:17 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:03:35 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_head.h"
+#include "../INC/philo_head.h"
 
 void	philo_sleeping(t_philo *philo, long long time)
 {

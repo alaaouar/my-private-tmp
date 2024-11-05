@@ -6,11 +6,11 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:07:23 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 17:56:10 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:03:49 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_head.h"
+#include "../INC/philo_head.h"
 
 long long	ft_getcurrenttime(void)
 {

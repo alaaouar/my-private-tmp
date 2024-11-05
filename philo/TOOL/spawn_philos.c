@@ -6,11 +6,11 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:46:20 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 17:53:18 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:03:45 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_head.h"
+#include "../INC/philo_head.h"
 
 void	clean(t_philo *philo)
 {

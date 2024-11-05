@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:13:01 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 18:55:11 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:00:40 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ typedef struct s_philo
 
 typedef struct s_init_args
 {
-    char            **av;
-    int             ac;
-    t_philo         **philo;
-    t_mutex         *mutex;
-    pthread_mutex_t *shop;
-    int             size;
-}               t_init_args;
+	char			**av;
+	int				ac;
+	t_philo			**philo;
+	t_mutex			*mutex;
+	pthread_mutex_t	*shop;
+	int				size;
+}					t_init_args;
 
 int			parse(char **av);
 int			ft_atoi(const char *str);
-void		*observer(void *arg);
+void		*observer_rout(void *arg);
 long long	ft_getcurrenttime(void);
 int			ft_usleep(size_t milliseconds);
 long long	ft_getcurrenttime(void);
@@ -85,5 +85,6 @@ void		philo_sleeping(t_philo *philo, long long time);
 void		philo_thinking(t_philo *philo);
 void		everything_init(char **av, int ac, t_philo **philo);
 int			lock_forks(t_philo *philo);
-
+t_mutex		*shopsticks_init(int size, pthread_mutex_t *shop);
+t_philo		*born_philo(t_init_args *args, pthread_mutex_t *r, pthread_mutex_t *l);
 #endif

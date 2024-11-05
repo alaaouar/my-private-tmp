@@ -6,11 +6,11 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:15:25 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 17:47:09 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:03:38 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_head.h"
+#include "../INC/philo_head.h"
 
 int	ft_isdigit(int car)
 {
