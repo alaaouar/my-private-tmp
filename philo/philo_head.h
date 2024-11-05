@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:13:01 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/11/05 18:03:25 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:55:11 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,16 @@ typedef struct s_philo
 	t_mutex			*mutex;
 	struct s_philo	*next;
 }					t_philo;
+
+typedef struct s_init_args
+{
+    char            **av;
+    int             ac;
+    t_philo         **philo;
+    t_mutex         *mutex;
+    pthread_mutex_t *shop;
+    int             size;
+}               t_init_args;
 
 int			parse(char **av);
 int			ft_atoi(const char *str);
